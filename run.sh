@@ -13,10 +13,10 @@
 #   echo "${1}"
 # }
 #
-fail() {
-  echo "${1}"
-  exit $?
-}
+# fail() {
+#   echo "${1}"
+#   exit $?
+# }
 #
 # warn() {
 #   echo "${1}"
