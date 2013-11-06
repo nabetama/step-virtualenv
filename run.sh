@@ -15,7 +15,7 @@
 #
 # fail() {
 #   echo "${1}"
-#   exit $?
+#   # exit $?
 # }
 #
 # warn() {
@@ -46,7 +46,7 @@ is_python_version
 
 RESULT=$?
 
-if [ ! "$RESULT" -eq 1 ] ; then
+if [ ! "$RESULT" -eq 0 ] ; then
     fail "Python not found for path: $WERCKER_VIRTUALENV_PYTHON_PATH"
 fi
 
@@ -54,7 +54,7 @@ is_valid_venv_path
 
 RESULT=$?
 
-if [ ! "$RESULT" -eq 1 ] ; then
+if [ ! "$RESULT" -eq 0 ] ; then
     fail "Directory for virtual environment already exists"
 fi
 
