@@ -60,10 +60,11 @@ source $WERCKER_VIRTUALENV_VIRTUALENV_LOCATION/bin/activate
 
 mkdir -p $WERCKER_CACHE_DIR/pip-download-cache
 
-info "Enabling pip download cache environment variable:"
+info "Enabling generic pip environment variables:"
 echo "PIP_DOWNLOAD_CACHE=$WERCKER_CACHE_DIR/pip-download-cache"
 export PIP_DOWNLOAD_CACHE=$WERCKER_CACHE_DIR/pip-download-cache
-
+echo "PIP_FIND_LINKS=$WERCKER_CACHE_DIR/pip-download-cache"
+export PIP_FIND_LINKS=$WERCKER_CACHE_DIR/pip-download-cache
 
 if [ $WERCKER_VIRTUALENV_INSTALL_WHEEL = "true" ]; then
     mkdir -p $WERCKER_CACHE_DIR/pip-wheels
