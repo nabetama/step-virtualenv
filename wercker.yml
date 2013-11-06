@@ -8,4 +8,10 @@ build:
   after-steps:
     - script:
         name: Save stats
-        code: ./run.sh
+        code: |
+            export WERCKER_GIT_REPOSITORY=foo-bar
+            export WERCKER_GIT_BRANCH=master
+            export WERCKER_VIRTUALENV_PYTHON_PATH=/usr/bin/python2.7
+            export WERCKER_VIRTUALENV_VIRTUALENV_LOCATION=/home/vagrant/venv
+            export WERCKER_VIRTUALENV_INSTALL_WHEEL=true
+            source ./run.sh
