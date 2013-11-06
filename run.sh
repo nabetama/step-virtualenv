@@ -33,7 +33,7 @@
 #   echo "${1}"
 # }
 
-$VIRTUAL_ENV_COMMAND = "virtualenv"
+VIRTUAL_ENV_COMMAND="virtualenv"
 
 if [[ -n "$WERCKER_STEP_ROOT" && $WERCKER_STEP_ROOT != "/wercker/steps/wercker/script/0.0.0" ]]; then
   source "${WERCKER_STEP_ROOT}/support/wercker-functions.sh"
