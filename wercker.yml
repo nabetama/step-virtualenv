@@ -4,7 +4,7 @@ build:
     - validate-wercker-step
     - script:
         name: tree
-        code: tree
+        code: ls -la
     - script:
         name: Run tests
         code: ./script/spec
