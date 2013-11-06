@@ -13,9 +13,10 @@
 #   echo "${1}"
 # }
 #
-# fail() {
-#   echo "${1}"
-# }
+fail() {
+  echo "${1}"
+  exit $?
+}
 #
 # warn() {
 #   echo "${1}"
@@ -41,11 +42,19 @@ else
   source ./support/wercker-functions.sh
 fi
 
-if [ ! is_python_version ] ; then
-    fail "Python not found in path: $WERCKER_VIRTUALENV_PYTHON_PATH"
+is_python_version
+
+RESULT=$?
+
+if [ ! "$RESULT" -eq 1 ] ; then
+    fail "Python not found for path: $WERCKER_VIRTUALENV_PYTHON_PATH"
 fi
 
-if [ ! is_valid_venv_path ] ; then
+is_valid_venv_path
+
+RESULT=$?
+
+if [ ! "$RESULT" -eq 1 ] ; then
     fail "Directory for virtual environment already exists"
 fi
 
