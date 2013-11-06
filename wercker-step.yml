@@ -1,0 +1,20 @@
+name: virtualenv
+version: 0.0.1
+description: Create a virtual env with wheel installed
+keywords:
+  - virtualenv
+  - python
+  - wheel
+properties:
+  python_path:
+    type: string
+    required: false
+    default: /usr/bin/python2.7
+  install_wheel:
+    type: boolean
+    required: false
+    default: true
+  virtualenv_location:
+    type: string
+    required: false
+    default: ~/venv
