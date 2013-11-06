@@ -70,7 +70,7 @@ if [ $WERCKER_VIRTUALENV_INSTALL_WHEEL = "true" ]; then
     mkdir -p $WERCKER_CACHE_DIR/pip-wheels
 
     info "Installing wheel package"
-    pip install wheel --find-links="$WERCKER_CACHE_DIR/pip-download-cache"
+    pip install wheel
 
     info "Enabling enviromnent variables for pip:"
     export PIP_USE_WHEEL=true
