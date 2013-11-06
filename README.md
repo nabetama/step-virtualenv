@@ -47,7 +47,11 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 # Changelog
 
+## 0.0.3
+- fix for using wheels while building wheels (to prevent rebuilding existing wheels)
+
 ## 0.0.2
 - WERCKER_WHEEL_DIR added (for use in the pip-install step)
+
 ## 0.0.1
 - initial release
