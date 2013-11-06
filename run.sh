@@ -41,15 +41,15 @@ else
   source ./support/wercker-functions.sh
 fi
 
-if [ ! is_python_version ]; then
+if [ ! is_python_version ] ; then
     fail "Python not found in path: $WERCKER_VIRTUALENV_PYTHON_PATH"
 fi
 
-if [ ! is_valid_venv_path ]; then
+if [ ! is_valid_venv_path ] ; then
     fail "Directory for virtual environment already exists"
 fi
 
-if [ ! is_virtualenv_installed ]; then
+if [ ! is_virtualenv_installed ] ; then
     fail "virtualenv was not found. It probably is not installed?"
 fi
 
