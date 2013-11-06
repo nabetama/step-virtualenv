@@ -15,7 +15,7 @@ build:
             export WERCKER_CACHE_DIR="/tmp"
             source ./run.sh
             pip freeze
-   - script:
+    - script:
         name: Test virtual env 2
         code: |
             export WERCKER_VIRTUALENV_PYTHON_PATH="/usr/bin/python3.2"
