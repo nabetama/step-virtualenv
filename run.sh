@@ -58,12 +58,24 @@ $VIRTUAL_ENV_COMMAND --no-site-packages -p $WERCKER_VIRTUALENV_PYTHON_PATH $WERC
 info "Activating virtual enviromnent."
 source $WERCKER_VIRTUALENV_VIRTUALENV_LOCATION/bin/activate
 
+mkdir -p $WERCKER_CACHE_DIR/pip-download-cache
+
+info "Enabling pip download cache environment variable:"
+echo "PIP_DOWNLOAD_CACHE=$WERCKER_CACHE_DIR/pip-download-cache"
+export PIP_DOWNLOAD_CACHE=$WERCKER_CACHE_DIR/pip-download-cache
+
+
 if [ $WERCKER_VIRTUALENV_INSTALL_WHEEL = "true" ]; then
-    info "Installing wheel"
-    pip install wheel --find-links=$WERCKER_CACHE_DIR/pip-download-cache
+    mkdir -p $WERCKER_CACHE_DIR/pip-wheels
+
+    info "Installing wheel package"
+    pip install wheel --find-links="$WERCKER_CACHE_DIR/pip-download-cache"
+
+    info "Enabling enviromnent variables for pip:"
+    export PIP_USE_WHEEL=true
+    info "PIP_USE_WHEEL=true"
+
 else
-    info "Wheel is not installed"
+    info "Wheel will not be installed"
 fi
 
-mkdir -p $WERCKER_CACHE_DIR/pip-wheels
-mkdir -p $WERCKER_CACHE_DIR/pip-download-cache
