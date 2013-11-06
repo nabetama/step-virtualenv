@@ -13,6 +13,6 @@ build:
             export WERCKER_GIT_BRANCH=master
             export WERCKER_VIRTUALENV_PYTHON_PATH=/usr/bin/python2.7
             export WERCKER_VIRTUALENV_VIRTUALENV_LOCATION=/home/ubuntu/venv
-            export WERCKER_VIRTUALENV_INSTALL_WHEEL=true
+            export WERCKER_VIRTUALENV_INSTALL_WHEEL="true"
             source ./run.sh
             pip freeze

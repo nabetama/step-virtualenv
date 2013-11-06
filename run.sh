@@ -58,7 +58,7 @@ $VIRTUAL_ENV_COMMAND --no-site-packages -p $WERCKER_VIRTUALENV_PYTHON_PATH $WERC
 info "Activating virtual enviromnent."
 source $WERCKER_VIRTUALENV_VIRTUALENV_LOCATION/bin/activate
 
-if [ WERCKER_VIRTUALENV_INSTALL_WHEEL = "true" ]; then
+if [ $WERCKER_VIRTUALENV_INSTALL_WHEEL = "true" ]; then
     info "Installing wheel"
     pip install wheel --find-links=$WERCKER_CACHE_DIR/pip-download-cache
 else
