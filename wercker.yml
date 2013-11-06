@@ -3,6 +3,9 @@ build:
   steps:
     - validate-wercker-step
     - script:
+        name: tree
+        code: tree
+    - script:
         name: Run tests
         code: ./script/spec
   after-steps:
