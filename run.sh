@@ -76,14 +76,19 @@ echo "PIP_FIND_LINKS=$WERCKER_CACHE_DIR/pip-download-cache"
 export PIP_FIND_LINKS=$WERCKER_CACHE_DIR/pip-download-cache
 
 if [ $WERCKER_VIRTUALENV_INSTALL_WHEEL = "true" ]; then
-    mkdir -p $WERCKER_CACHE_DIR/pip-wheels
 
     info "Installing wheel package"
     pip install wheel
 
+    mkdir -p $WERCKER_CACHE_DIR/pip-wheels
+
+    info "Setting wercker wheel enviromnent variable:"
+    info "WERCKER_WHEEL_DIR=$WERCKER_CACHE_DIR/pip-wheels"
+    export WERCKER_WHEEL_DIR=$WERCKER_CACHE_DIR/pip-wheels
+
     info "Enabling enviromnent variables for pip:"
-    export PIP_USE_WHEEL=true
     info "PIP_USE_WHEEL=true"
+    export PIP_USE_WHEEL=true
 
 else
     info "Wheel will not be installed"
