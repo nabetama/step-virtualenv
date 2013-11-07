@@ -1,5 +1,5 @@
 name: virtualenv
-version: 0.0.3
+version: 0.0.4
 description: Create a virtual env with wheel installed
 keywords:
   - virtualenv

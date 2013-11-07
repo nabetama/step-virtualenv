@@ -47,6 +47,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 # Changelog
 
+## 0.0.4
+- PIP_WHEEL_DIR is now used instead of WERCKER_WHEEL_DIR
+
 ## 0.0.3
 - fix for using wheels while building wheels (to prevent rebuilding existing wheels)
 

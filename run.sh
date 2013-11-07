@@ -82,7 +82,7 @@ if [ $WERCKER_VIRTUALENV_INSTALL_WHEEL = "true" ]; then
 
     info "Setting wercker wheel enviromnent variable:"
     info "WERCKER_WHEEL_DIR=$WERCKER_CACHE_DIR/pip-wheels"
-    export WERCKER_WHEEL_DIR=$WERCKER_CACHE_DIR/pip-wheels
+    export PIP_WHEEL_DIR=$WERCKER_CACHE_DIR/pip-wheels
     echo "Updating"
     echo "PIP_FIND_LINKS=$WERCKER_CACHE_DIR/pip-wheels"
     export PIP_FIND_LINKS=$WERCKER_CACHE_DIR/pip-wheels
