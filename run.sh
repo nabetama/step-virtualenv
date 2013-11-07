@@ -4,7 +4,7 @@
 #
 # WERCKER_GIT_REPOSITORY=foo-bar
 # WERCKER_GIT_BRANCH=master
-# WERCKER_VIRTUALENV_PYTHON_PATH=/usr/bin/python2.7
+# WERCKER_VIRTUALENV_PYTHON_LOCATION=/usr/bin/python2.7
 # WERCKER_VIRTUALENV_VIRTUALENV_LOCATION=/home/vagrant/venv
 # WERCKER_VIRTUALENV_INSTALL_WHEEL=true
 # DEPLOY=false
@@ -47,7 +47,7 @@ is_python_version
 RESULT=$?
 
 if [ ! "$RESULT" -eq 0 ] ; then
-    fail "Python not found for path: $WERCKER_VIRTUALENV_PYTHON_PATH"
+    fail "Python not found for path: $WERCKER_VIRTUALENV_PYTHON_LOCATION"
 fi
 
 is_valid_venv_path
@@ -62,7 +62,7 @@ if [ ! is_virtualenv_installed ] ; then
     fail "virtualenv was not found. It probably is not installed?"
 fi
 
-$VIRTUAL_ENV_COMMAND --no-site-packages -p $WERCKER_VIRTUALENV_PYTHON_PATH $WERCKER_VIRTUALENV_VIRTUALENV_LOCATION
+$VIRTUAL_ENV_COMMAND --no-site-packages -p $WERCKER_VIRTUALENV_PYTHON_LOCATION $WERCKER_VIRTUALENV_VIRTUALENV_LOCATION
 
 info "Activating virtual enviromnent."
 source $WERCKER_VIRTUALENV_VIRTUALENV_LOCATION/bin/activate

@@ -3,14 +3,9 @@
 Create a virtual environment for python and activate it. The virtual
 environment will also auto-install the python wheel package.
 
-<!-- # What's new
-
--
- -->
-
 # Options
 
-* `python_path` (optional, default=/usr/bin/python2.7) location of python
+* `python_location` (optional, default=/usr/bin/python2.7) location of python
 * `install_wheel` (optional, default=true)
 
 # Example
@@ -19,7 +14,7 @@ environment will also auto-install the python wheel package.
 build:
   steps:
     - virtualenv
-        python_path=/usr/bin/python3.2
+        python_location=/usr/bin/python3.2
 ```
 
 # License
@@ -46,6 +41,10 @@ IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 # Changelog
+
+## 0.0.5
+- updated default virtualenv_location.
+- python_path is now python_location
 
 ## 0.0.4
 - PIP_WHEEL_DIR is now used instead of WERCKER_WHEEL_DIR

@@ -1,12 +1,12 @@
 name: virtualenv
-version: 0.0.4
+version: 0.0.5
 description: Create a virtual env with wheel installed
 keywords:
   - virtualenv
   - python
   - wheel
 properties:
-  python_path:
+  python_location:
     type: string
     required: false
     default: /usr/bin/python2.7
@@ -17,4 +17,4 @@ properties:
   virtualenv_location:
     type: string
     required: false
-    default: ~/venv
+    default: /home/ubuntu/venv

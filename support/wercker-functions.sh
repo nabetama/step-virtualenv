@@ -2,8 +2,8 @@
 
 # Returns true if python version is at version 2.x or 3.x
 is_python_version() {
-  if [ -f $WERCKER_VIRTUALENV_PYTHON_PATH ] ; then
-      case "$($WERCKER_VIRTUALENV_PYTHON_PATH --version 2>&1)" in
+  if [ -f $WERCKER_VIRTUALENV_PYTHON_LOCATION ] ; then
+      case "$($WERCKER_VIRTUALENV_PYTHON_LOCATION --version 2>&1)" in
           *" 3."*)
               return 0
               ;;
