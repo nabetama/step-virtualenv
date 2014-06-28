@@ -9,30 +9,30 @@
 # WERCKER_VIRTUALENV_INSTALL_WHEEL=true
 # DEPLOY=false
 
-# success() {
-#   echo "${1}"
-# }
-#
-# fail() {
-#   echo "${1}"
-#  # exit $?
-# }
-#
-# warn() {
-#   echo "${1}"
-# }
-#
-# info() {
-#   echo "${1}"
-# }
-#
-# debug() {
-#   echo "${1}"
-# }
-#
-# setMessage() {
-#   echo "${1}"
-# }
+success() {
+  echo "${1}"
+}
+
+fail() {
+  echo "${1}"
+ # exit $?
+}
+
+warn() {
+  echo "${1}"
+}
+
+info() {
+  echo "${1}"
+}
+
+debug() {
+  echo "${1}"
+}
+
+setMessage() {
+  echo "${1}"
+}
 
 VIRTUAL_ENV_COMMAND="virtualenv"
 
@@ -42,25 +42,12 @@ else
   source ./support/wercker-functions.sh
 fi
 
-is_python_version
+is_python_version || fail "Python not found for path: $WERCKER_VIRTUALENV_PYTHON_LOCATION"
+is_exec_python || fail "Python not exec for path: $WERCKER_VIRTUALENV_PYTHON_LOCATION"
 
-RESULT=$?
+is_valid_venv_path || fail "Directory for virtual environment already exists"
 
-if [ ! "$RESULT" -eq 0 ] ; then
-    fail "Python not found for path: $WERCKER_VIRTUALENV_PYTHON_LOCATION"
-fi
-
-is_valid_venv_path
-
-RESULT=$?
-
-if [ ! "$RESULT" -eq 0 ] ; then
-    fail "Directory for virtual environment already exists"
-fi
-
-if [ ! is_virtualenv_installed ] ; then
-    fail "virtualenv was not found. It probably is not installed?"
-fi
+is_virtualenv_installed || fail "virtualenv was not found. It probably is not installed?"
 
 $VIRTUAL_ENV_COMMAND --no-site-packages -p $WERCKER_VIRTUALENV_PYTHON_LOCATION $WERCKER_VIRTUALENV_VIRTUALENV_LOCATION
 

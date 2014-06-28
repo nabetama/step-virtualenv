@@ -19,6 +19,13 @@ is_python_version() {
   return 1
 }
 
+is_exec_python() {
+  if [ -x $WERCKER_VIRTUALENV_PYTHON_LOCATION ] ; then
+    return 0
+  fi
+  return 1
+}
+
 # Returns true if virtual env path is not a directory
 is_valid_venv_path() {
   if [ -d "$WERCKER_VIRTUALENV_VIRTUALENV_PATH" ] ; then
